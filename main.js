@@ -256,3 +256,236 @@
 // };
 
 // console.log(factorial(5));
+
+// การประกาศ Object
+// const brand = 'Mercedez Benz';
+
+// const car = {
+//   brand, // brand: brand
+//   color: 'Blue',
+//   model: 'C220',
+//   distributor: {
+//     name: 'Benz Thonglor',
+//     address: {
+//       road: 'Sukhumvit',
+//       district: 'Wattana',
+//       province: 'Bangkok'
+//     }
+//   }
+// };
+
+// for in กับ key ของ object
+// let i = 0;
+// for (let key in car) {
+//   console.log(`keyname: ${key} has value: ${car[key]}`);
+//   i++;
+// }
+
+// car.distributor.address.province = 'Trat';
+
+// car.price = 1000;
+// console.log(car);
+
+// car.color = 'Red';
+// console.log(car);
+
+// delete car.color;
+// console.log(car);
+
+// Object.assign and merge object
+// const user = {};
+// const permission1 = { canView: true };
+// const permission2 = { canEdit: false };
+
+// user = {
+//   canView: true,
+//   canEdit: false
+// }
+
+// Object.assign(user, permission1, permission2);
+// first step merge permission1 เข้ากับ permission2
+// result { canEdit: false, canView: true  }
+// second step merge result เข้ากับ user แล้วเก็บไว้ใน user
+// final result result { canEdit: false, canView: true  }
+
+// this keyword demo
+// const user = {
+//   name: 'Earth',
+//   introduce: function () {
+//     alert(`Heloo. My name is ${this.name}`);
+//   }
+// };
+
+// user.introduce();
+
+// const admin = {
+//   name: 'Admin'
+// };
+
+// admin.introduce = user.introduce;
+// // admin.introduce();
+
+// function sayHello() {
+//   console.log(this);
+// }
+
+// sayHello();
+
+// Lab 4.1
+// const person = {
+//   name: 'Earth',
+//   age: 30,
+//   gender: 'Male',
+//   address: '75/5 Banthadthong Rd. Pathumwan Bangkok',
+//   phoneNumber: '021121150'
+// }
+
+// Lab 4.2
+// const user = {};
+// user.name = 'John';
+// user['surname'] = 'Doe';
+// user.name = 'Matt';
+// delete user.name;
+
+// Lab 4.3
+// function testObjectIsEmpty(obj) {
+//   for (let key in obj) {
+//     return false;
+//   }
+//   return true;
+// }
+
+// Lab 4.4
+// const calcSumSalaries = function (obj) {
+//   let sum = 0;
+//   for (let key in obj) {
+//     sum += obj[key];
+//   }
+//   return sum;
+// };
+
+// let salaries = {
+//   John: 100,
+//   Ann: 160,
+//   Pete: 130
+// };
+
+// console.log(calcSumSalaries(salaries));
+// console.log(calcSumSalaries({}));
+
+// Lab 4.5
+// const multiplyNumeric = (obj, num) => {
+//   const result = {};
+//   for (let key in obj) {
+//     if (isNaN(obj[key])) {
+//       result[key] = obj[key];
+//     } else {
+//       result[key] = obj[key] * num;
+//     }
+//   }
+//   return result;
+// };
+
+// Lab 4.6
+// const username = prompt('Enter username');
+// const email = prompt('Enter email');
+// const password = prompt('Enter password');
+
+// const user = {
+//   username: username,
+//   email: email,
+//   password: password
+// };
+
+// // shorthand
+// const user = {
+//   username,
+//   email,
+//   password
+// };
+
+// Lab 4.7
+// let obj = {};
+
+// while (1) {
+//   const key = prompt('Enter key');
+//   if (key === 'stop') break;
+//   const value = prompt('Enter value');
+//   if (value === 'stop') break;
+
+//   if (key && key.trim()) {
+//     obj[key] = value;
+//   } else {
+//     alert('Invalid key');
+//   }
+// }
+
+// console.log(obj);
+
+// Lab 4.8
+// let fruits = {};
+
+// while (1) {
+//   const key = prompt('Enter fruit');
+//   if (key === 'stop') break;
+//   const value = prompt('Enter amount');
+//   if (value === 'stop') break;
+
+//   if (key && key.trim()) {
+//     if (value > 1) {
+//       fruits[`${key}s`] = value;
+//     } else {
+//       fruits[key] = value;
+//     }
+//   } else {
+//     alert('Invalid key')
+//   }
+// }
+
+// Lab 4.9
+// const name = prompt('Enter product name');
+// const amount = prompt('Enter amount');
+// const price = prompt('Enter price');
+// const discount = prompt('Enter discount');
+
+// const product = {
+//   name,
+//   amount,
+//   price
+// };
+
+// if (discount !== 0) {
+//   product.discount = discount;
+// }
+
+// function calcNetPrice(obj) {
+//   // ใช้ if
+//   if (obj.discount) {
+//     return (obj.price * obj.amount * (100 - obj.discount)) / 100;
+//   }
+//   return obj.price * obj.amount;
+//   // ใช้ truthy value
+//   // return obj.price * obj.amount * (100 - obj.discount || 0) / 100
+// }
+
+// console.log(calcNetPrice(product));
+
+// Lab 4.10
+// const employees = {
+//   john: { salary: 1000, address: { district: 'Ratchathewi', province: 'Bangkok' } },
+//   peter: { salary: 1500, address: { district: 'Pathumwan', province: 'Bangkok' } },
+//   mike: { salary: 800, address: { district: 'Pakkret', province: 'Nonthaburi' } },
+//   sarah: { salary: 2200, address: { district: 'Sriraja', province: 'Chonburi' } }
+// };
+
+// const name = prompt('Enter employee name');
+
+// if (employees[name]) {
+//   console.log(
+//     `Name: ${name}, salary: ${employees[name].salary}, address: ${employees[name].address.district}, ${employees[name].address.province}`
+//   );
+// } else {
+//   console.log('Not found');
+// }
+// result
+// Name: john, salary: 1000, address: Ratchathewi, Bangkok
