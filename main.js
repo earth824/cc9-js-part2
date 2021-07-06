@@ -489,3 +489,124 @@
 // }
 // result
 // Name: john, salary: 1000, address: Ratchathewi, Bangkok
+
+// Lab 4.14
+// const notebook = {
+//   brand: 'ASUS',
+//   model: 'Vivobook D413IA-EB303TS',
+//   processor: 'AMD Ryzen 7 4700U 3.6GHz',
+//   graphics: 'Integrated Graphics : AMD Radeon Graphics',
+//   ram: '8GB DDR4 Onboard',
+//   storage: '512GB PCIe NVMe M.2 SSD'
+// };
+
+// const cloneNotebook = {};
+// for (let key in notebook) {
+//   cloneNotebook[key] = notebook[key];
+// }
+// const cloneNotebook = Object.assign({}, notebook);
+// console.log(cloneNotebook);
+
+// Lab 4.15
+// const state1 = { username: 'john', point: 100, loading: true };
+// const cloneState1 = Object.assign({}, state1, {
+//   loading: false,
+//   point: 75,
+//   success: true
+// });
+// console.log(cloneState1);
+
+// Lab 4.16
+// const permission1 = { canView: false, canDelete: false };
+// const permission2 = { canUpdate: true, canCreate: true };
+// const permission3 = { canCreate: false, canDelete: true };
+// const permission4 = { canView: true };
+// const permission = Object.assign({}, permission1, permission2, permission3, permission4);
+
+// Lab 4.19
+// let calculator = {
+//   read() {
+//     this.input1 = prompt('Enter first number');
+//     this.input2 = prompt('Enter second number');
+//   },
+
+//   sum() {
+//     return +this.input1 + +this.input2;
+//   },
+
+//   multiply() {
+//     return this.input1 * this.input2;
+//   }
+// };
+
+// calculator.read();
+// console.log(calculator.sum());
+// console.log(calculator.multiply());
+
+// Lab 4.20
+// function Calculator() {
+//   this.read = function () {
+//     this.input1 = prompt('Enter first number');
+//     this.input2 = prompt('Enter second number');
+//   };
+//   this.sum = function () {
+//     return +this.input1 + +this.input2;
+//   };
+//   this.multiply = function () {
+//     return this.input1 * this.input2;
+//   };
+// }
+// const calculator = new Calculator();
+// calculator.read();
+// console.log(calculator.sum());
+// console.log(calculator.multiply());
+
+// Lab 4.21
+// function Accumulator(startingValue) {
+//   // this = {}; behind the scene
+//   this.currentValue = startingValue; // {currentValue: startingValue}
+//   this.read = function () {
+//     this.currentValue += +prompt('Enter number');
+//   };
+//   this.show = function () {
+//     alert(this.currentValue);
+//   };
+//   // return this behind the scene
+// }
+
+// const accumulator = new Accumulator(0); //
+// accumulator object from new Accumulator(0)
+// {
+//   currentValue: 0,
+//   read: function() {
+//     this.currentValue += +prompt('Enter number');
+//   },
+//   show: function() {
+//     alert(this.currentValue)
+//   }
+// }
+
+// accumulator.read();
+// accumulator.read();
+// accumulator.read();
+// accumulator.show();
+
+// Lab 4.22
+// const product1 = {
+//   name: 'Water',
+//   distributor: {
+//     name: 'Giraffe Water Company',
+//     address: {
+//       street: 'Phetchaburi',
+//       subdistrict: 'Thanonphetchaburi',
+//       district: 'Ratchathewi',
+//       province: 'Bangkok'
+//     }
+//   }
+// };
+
+// const product2 = {};
+
+// console.log(product1.distributor.address.province);
+// // console.log(product2.distributor.address.province);
+// console.log(product2?.distributor?.address?.province);
